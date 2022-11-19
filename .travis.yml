@@ -1,0 +1,11 @@
+udo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t eshwaraj-mi/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true eshwaraj-mi/docker-react npm run test
